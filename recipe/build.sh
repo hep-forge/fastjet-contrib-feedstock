@@ -2,6 +2,6 @@
 
 ./configure --prefix=$PREFIX
 
-make fragile-shared-install -j$(nproc)
+make -j$(nproc)
 make check
-make install
+make fragile-shared-install 
