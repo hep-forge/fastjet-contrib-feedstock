@@ -1,0 +1,40 @@
+{% set versions = {
+    "1.056": "fc31544424dece0d0676ea2433ad1e96fd9db82920bc7a7ef6294ce94e659d6e"
+} %}
+
+
+{% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', "fastjet-contrib")|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+
+source:
+  url: "http://fastjet.hepforge.org/contrib/downloads/fjcontrib-{{ version }}.tar.gz"
+  {% if versions.get(version, None) %}
+  sha256: {{ versions.get(version) }}
+  {% endif %}
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+
+    - make
+
+  host:
+    - fastjet
+
+  run:
+    - fastjet
+
+about:
+  home: "https://fastjet.hepforge.org/contrib/"
+  license: "GPL-2.0"
+  summary: "The fastjet-contrib space is intended to provide a common location for access to 3rd party extensions of FastJet."
+
+extra:
+  recipe-maintainers:
+    - meiyasan
