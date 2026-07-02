@@ -27,6 +27,7 @@ requirements:
     - {{ compiler('c') }}
 
     - make
+    - gnuconfig
 
   host:
     - fastjet
