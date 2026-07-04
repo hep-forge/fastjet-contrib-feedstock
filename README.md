@@ -16,7 +16,7 @@ The fastjet-contrib space is intended to provide a common location for access to
 | Architecture | Latest published |
 |--------------|------------------|
 | linux-amd64 (`linux-64`) | ✅ `1.056` |
-| linux-arm64 (`linux-aarch64`) | ❌ not published |
+| linux-arm64 (`linux-aarch64`) | ✅ `1.056` |
 
 _As of the last feedstock render; the badges above are live._
 
