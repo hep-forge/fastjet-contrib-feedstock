@@ -13,6 +13,11 @@ done
 # Without this, the build falls back to whatever bare `g++` resolves to
 # instead of conda's pinned toolchain wrapper, leaking newer host GLIBC
 # symbol versions (e.g. GLIBC_2.38) into libfastjetcontribfragile.so.
+# 1.103's FlavNeutraliser.cc uses std::sort without <algorithm>; libc++ does
+# not pull it in through other headers (1.105 includes it itself)
+if [[ "$(uname)" == "Darwin" ]]; then
+  CXXFLAGS="${CXXFLAGS} -include algorithm"
+fi
 ./configure --prefix=$PREFIX CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
 
 NPROC=$(nproc 2>/dev/null || sysctl -n hw.ncpu)
