@@ -1,5 +1,6 @@
 {% set versions = {
-    "1.105": "21ad3d62a53b24fc89819c2f8a2cb519d77cbc1ad56be7daae5994a611907bc2"
+    "1.105": "21ad3d62a53b24fc89819c2f8a2cb519d77cbc1ad56be7daae5994a611907bc2",
+    "1.103": "375c1fcc0bb29dd327f24013d9edfe93495d29cb0b87a016819088ebd9ccf72f"
 } %}
 
 
@@ -47,3 +48,6 @@ about:
 extra:
   recipe-maintainers:
     - meiyasan
+  lts:
+    main:
+      - "1.103"   # rivet pins fastjet-contrib ==1.103
