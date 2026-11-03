@@ -14,7 +14,7 @@ package:
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
-  url: "http://fastjet.hepforge.org/contrib/downloads/fjcontrib-{{ version }}.tar.gz"
+  url: "https://fastjet.hepforge.org/contrib/downloads/fjcontrib-{{ version }}.tar.gz"
   {% if versions.get(version, None) %}
   sha256: {{ versions.get(version) }}
   {% endif %}
